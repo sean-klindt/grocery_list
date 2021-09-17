@@ -1,17 +1,27 @@
-const Grocery = ({ id, item, price, complete }) => {
+import React from 'react';
+
+const Grocery = ({ id, product, price, complete, groceryClick }) => {
   return(
-    <>
-      <h1 style={ complete ? {...styles.complete} : {}}>{item} - {price}</h1>
-    </>
-  )
-}
+    <li
+      style={ complete ? { ...styles.grocery, ...styles.complete } : styles.grocery }
+      onClick={ () => groceryClick(id) }
+    >
+      { product } - { price }
+    </li>
+    )
+  };
+// {
+//   return(
+//     <>
+//       <h1 style={ complete ? {...styles.complete} : {}}>{product} - {price}</h1>
+//     </>
+//   )
+// }
 
 const styles = {
-  complete: {
-    color: "grey",
-    textDecoration: 'line-through',
-  }
-}
+  grocery: { cursor: 'pointer' },
+  complete: { color: "grey", textDecoration: 'line-through'},
+};
 
 
 export default Grocery;

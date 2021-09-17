@@ -1,7 +1,7 @@
 import { Component } from 'react';
 
 class GroceryList extends Component {
-  state = { item: '', price: '', complete: false}
+  state = { product: '', price: '', complete: false}
 
   handleChange = (e) => {
     const { name, value } = e.target
@@ -10,17 +10,17 @@ class GroceryList extends Component {
   handleSubmit = (e) => {
     e.preventDefault()
     this.props.addGrocery(this.state)
-    this.setState({ item: '', price: '', complete: false })
+    this.setState({ product: '', price: '', complete: false })
   }
 
   render (){
-    const { item, price } = this.state
+    const { product, price } = this.state
     return(
       <>
         <form onSubmit={this.handleSubmit}>
           <input
-            name="item"
-            value={item}
+            name="product"
+            value={product}
             onChange={this.handleChange}
 
             required
