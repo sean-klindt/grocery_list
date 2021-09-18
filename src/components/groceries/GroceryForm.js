@@ -18,22 +18,27 @@ class GroceryList extends Component {
     return(
       <>
         <form onSubmit={this.handleSubmit}>
+          <h4>Add an item:</h4>
           <input
             name="product"
             value={product}
             onChange={this.handleChange}
 
             required
-            placeholder="Add item"
+            placeholder="item"
             />
+            <br/>
+            <br/>
             <input
               name="price"
               value={price}
               onChange={this.handleChange}
               
               required
-              placeholder="Add price"
+              placeholder="price (without $)"
               />
+              <br/>
+              <br/>
             <button type="submit">Submit</button>
         </form>
       </>

@@ -1,22 +1,21 @@
 import React from 'react';
 
-const Grocery = ({ id, product, price, complete, groceryClick }) => {
+const Grocery = ({ id, product, price, complete, groceryClick, deleteItem }) => {
+  const handleDelete = () => {
+    deleteItem(product.id);
+  };
+
   return(
     <li
       style={ complete ? { ...styles.grocery, ...styles.complete } : styles.grocery }
       onClick={ () => groceryClick(id) }
     >
-      { product } - { price }
+      { product } - ${ price } 
+      {/* <button onClick={onRemove(id)}>Delete</button> */}
+      <button onClick={handleDelete}>Remove</button>
     </li>
-    )
+    );
   };
-// {
-//   return(
-//     <>
-//       <h1 style={ complete ? {...styles.complete} : {}}>{product} - {price}</h1>
-//     </>
-//   )
-// }
 
 const styles = {
   grocery: { cursor: 'pointer' },

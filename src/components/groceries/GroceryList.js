@@ -1,20 +1,18 @@
 import React from 'react';
 import Grocery from './Grocery';
 
-const GroceryList = ({ items, groceryClick }) => {
+const GroceryList = ({ items, groceryClick, deleteItem }) => {
   return(
     <div>
       <h2>Grocery List</h2>
+      <h3>------------------------</h3>
+      <h4>Click an item to cross it off</h4>
       <ul>
         {items.map( item => 
-        <Grocery 
-          key={item.id} {...item}
-          groceryClick={groceryClick}
-          // id={grocery.id} 
-          // grocery={grocery.product} 
-          // price={grocery.price} 
-          // complete={grocery.complete}
-          /> )}
+          <Grocery key={item.id} {...item} groceryClick={groceryClick} deleteItem={deleteItem} />
+          )
+        }
+
       </ul>
       {/* {
         groceries.map( grocery =>
